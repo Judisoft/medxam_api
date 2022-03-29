@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Bmatovu\MtnMomo\MtnMomoServiceProvider::class,
 
         /*
          * Application Service Providers...
