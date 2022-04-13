@@ -6,6 +6,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\VerifyController;
+use App\Http\Controllers\ScoreController;
 
 
 /*
@@ -40,4 +41,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/questions', [QuestionController::class, 'index']);
 
 // email verification 
-Route::get('/verify/{token}', [VerifyController::class, 'verifyEmail'])->name('verify');
+Route::get('/verify/{token}', [VerifyController::class, 'verifyEmail']);
+// Route::post('/verify/{token}', 'VerifyController@verifyEmail')->name('verify');
+
+//Get Users' scores
+Route::g('/scores', [ScoreController::class, 'getUserScore']);

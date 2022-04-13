@@ -14,7 +14,13 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return Question::all();
+        return  Question::all();
+    
+        // return response([
+        //     'questions' => $questions,
+        //     'status' => 200
+        // ]);
+        // return response()->json($questions) ;
     }
 
     /**

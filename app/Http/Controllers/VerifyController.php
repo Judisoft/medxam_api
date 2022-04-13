@@ -8,22 +8,22 @@ use App\Models\User;
 
 class VerifyController extends Controller
 {
-    public function verifyEmail($token = null) {
+    public function verifyEmail($token) {
         
-        if ($token == null) {
-            $response = [
-                'message' => 'Account not activated'
-            ];
+        // if ($token == null) {
+        //     $response = [
+        //         'message' => 'Account not activated'
+        //     ];
             
-            return response($response, 401);
+        //     return response($response, 401);
 
-        }
+        // }
 
         $user = User::where('email_verification_token', $token)->first();
 
-        if($user == null) {
-            return response("Invalid login attempt", 401);
-        }
+        // if($user == null) {
+        //     return response("Invalid login attempt", 401);
+        // }
 
         $user->update([
             'email_verified' => 1,
@@ -32,7 +32,7 @@ class VerifyController extends Controller
         ]);
 
         $response = [
-            'message' => 'Accoun verified successfully'
+            'message' => 'Account verified successfully'
         ];
 
         return response($response, 200);
